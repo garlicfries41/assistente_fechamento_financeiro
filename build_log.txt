@@ -1,0 +1,74 @@
+
+> finance-app@0.0.0 build
+> tsc -b && vite build
+
+src/services/categoryService.ts(22,14): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(values: never, options?: { count?: "exact" | "planned" | "estimated" | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "user_categories", never, "POST">', gave the following error.
+    Argument of type '{ user_id: string; name: string; }' is not assignable to parameter of type 'never'.
+  Overload 2 of 2, '(values: never[], options?: { count?: "exact" | "planned" | "estimated" | undefined; defaultToNull?: boolean | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "user_categories", never, "POST">', gave the following error.
+    Object literal may only specify known properties, and 'user_id' does not exist in type 'never[]'.
+src/services/ruleService.ts(14,21): error TS2339: Property 'id' does not exist on type 'never'.
+src/services/ruleService.ts(15,23): error TS2339: Property 'term' does not exist on type 'never'.
+src/services/ruleService.ts(16,27): error TS2339: Property 'category' does not exist on type 'never'.
+src/services/ruleService.ts(17,28): error TS2339: Property 'match_type' does not exist on type 'never'.
+src/services/ruleService.ts(18,30): error TS2339: Property 'institution' does not exist on type 'never'.
+src/services/ruleService.ts(19,23): error TS2339: Property 'type' does not exist on type 'never'.
+src/services/ruleService.ts(20,30): error TS2339: Property 'auto_confirm' does not exist on type 'never'.
+src/services/ruleService.ts(30,14): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(values: never, options?: { count?: "exact" | "planned" | "estimated" | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "category_rules", never, "POST">', gave the following error.
+    Argument of type '{ user_id: string; term: string; category: string; match_type: "exact" | "contains"; institution: string | null; type: "Entrada" | "Sa├¡da" | null; auto_confirm: boolean; }' is not assignable to parameter of type 'never'.
+  Overload 2 of 2, '(values: never[], options?: { count?: "exact" | "planned" | "estimated" | undefined; defaultToNull?: boolean | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "category_rules", never, "POST">', gave the following error.
+    Object literal may only specify known properties, and 'user_id' does not exist in type 'never[]'.
+src/services/ruleService.ts(45,22): error TS2339: Property 'id' does not exist on type 'never'.
+src/services/ruleService.ts(46,24): error TS2339: Property 'term' does not exist on type 'never'.
+src/services/ruleService.ts(47,28): error TS2339: Property 'category' does not exist on type 'never'.
+src/services/ruleService.ts(48,29): error TS2339: Property 'match_type' does not exist on type 'never'.
+src/services/ruleService.ts(49,31): error TS2339: Property 'institution' does not exist on type 'never'.
+src/services/ruleService.ts(50,24): error TS2339: Property 'type' does not exist on type 'never'.
+src/services/ruleService.ts(51,31): error TS2339: Property 'auto_confirm' does not exist on type 'never'.
+src/services/transactionService.ts(14,21): error TS2339: Property 'id' does not exist on type 'never'.
+src/services/transactionService.ts(15,23): error TS2339: Property 'date' does not exist on type 'never'.
+src/services/transactionService.ts(16,30): error TS2339: Property 'description' does not exist on type 'never'.
+src/services/transactionService.ts(17,25): error TS2339: Property 'amount' does not exist on type 'never'.
+src/services/transactionService.ts(18,23): error TS2339: Property 'type' does not exist on type 'never'.
+src/services/transactionService.ts(19,27): error TS2339: Property 'category' does not exist on type 'never'.
+src/services/transactionService.ts(20,30): error TS2339: Property 'institution' does not exist on type 'never'.
+src/services/transactionService.ts(21,28): error TS2339: Property 'is_pending' does not exist on type 'never'.
+src/services/transactionService.ts(31,14): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(values: never, options?: { count?: "exact" | "planned" | "estimated" | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "transactions", never, "POST">', gave the following error.
+    Argument of type '{ user_id: string; date: string; description: string; amount: number; type: "Entrada" | "Sa├¡da"; category: string | null; source: "manual" | "csv" | "ofx" | null; institution: string | null; is_pending: boolean | undefined; }' is not assignable to parameter of type 'never'.
+  Overload 2 of 2, '(values: never[], options?: { count?: "exact" | "planned" | "estimated" | undefined; defaultToNull?: boolean | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "transactions", never, "POST">', gave the following error.
+    Object literal may only specify known properties, and 'user_id' does not exist in type 'never[]'.
+src/services/transactionService.ts(48,22): error TS2339: Property 'id' does not exist on type 'never'.
+src/services/transactionService.ts(49,24): error TS2339: Property 'date' does not exist on type 'never'.
+src/services/transactionService.ts(50,31): error TS2339: Property 'description' does not exist on type 'never'.
+src/services/transactionService.ts(51,26): error TS2339: Property 'amount' does not exist on type 'never'.
+src/services/transactionService.ts(52,24): error TS2339: Property 'type' does not exist on type 'never'.
+src/services/transactionService.ts(53,28): error TS2339: Property 'category' does not exist on type 'never'.
+src/services/transactionService.ts(54,26): error TS2339: Property 'source' does not exist on type 'never'.
+src/services/transactionService.ts(55,31): error TS2339: Property 'institution' does not exist on type 'never'.
+src/services/transactionService.ts(56,29): error TS2339: Property 'is_pending' does not exist on type 'never'.
+src/services/transactionService.ts(63,21): error TS2345: Argument of type '{ is_pending?: boolean | undefined; institution?: string | null | undefined; source?: "manual" | "csv" | "ofx" | undefined; category?: string | null | undefined; type?: "Entrada" | "Sa├¡da" | undefined; amount?: number | undefined; description?: string | undefined; date?: string | undefined; }' is not assignable to parameter of type 'never'.
+src/services/transactionService.ts(80,22): error TS2339: Property 'id' does not exist on type 'never'.
+src/services/transactionService.ts(81,24): error TS2339: Property 'date' does not exist on type 'never'.
+src/services/transactionService.ts(82,31): error TS2339: Property 'description' does not exist on type 'never'.
+src/services/transactionService.ts(83,26): error TS2339: Property 'amount' does not exist on type 'never'.
+src/services/transactionService.ts(84,24): error TS2339: Property 'type' does not exist on type 'never'.
+src/services/transactionService.ts(85,28): error TS2339: Property 'category' does not exist on type 'never'.
+src/services/transactionService.ts(86,26): error TS2339: Property 'source' does not exist on type 'never'.
+src/services/transactionService.ts(87,31): error TS2339: Property 'institution' does not exist on type 'never'.
+src/services/transactionService.ts(88,29): error TS2339: Property 'is_pending' does not exist on type 'never'.
+src/services/transactionService.ts(120,17): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(values: never, options?: { count?: "exact" | "planned" | "estimated" | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "transactions", never, "POST">', gave the following error.
+    Argument of type '{ user_id: string; date: string; description: string; amount: number; type: "Entrada" | "Sa├¡da"; category: string | null; source: "manual" | "csv" | "ofx" | null; institution: string | null; is_pending: boolean | undefined; }[]' is not assignable to parameter of type 'never'.
+  Overload 2 of 2, '(values: never[], options?: { count?: "exact" | "planned" | "estimated" | undefined; defaultToNull?: boolean | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "transactions", never, "POST">', gave the following error.
+    Argument of type '{ user_id: string; date: string; description: string; amount: number; type: "Entrada" | "Sa├¡da"; category: string | null; source: "manual" | "csv" | "ofx" | null; institution: string | null; is_pending: boolean | undefined; }[]' is not assignable to parameter of type 'never[]'.
+      Type '{ user_id: string; date: string; description: string; amount: number; type: "Entrada" | "Sa├¡da"; category: string | null; source: "manual" | "csv" | "ofx" | null; institution: string | null; is_pending: boolean | undefined; }' is not assignable to type 'never'.
+src/services/transactionService.ts(137,21): error TS2339: Property 'id' does not exist on type 'never'.
+src/services/transactionService.ts(138,23): error TS2339: Property 'date' does not exist on type 'never'.
+src/services/transactionService.ts(139,30): error TS2339: Property 'description' does not exist on type 'never'.
+src/services/transactionService.ts(140,25): error TS2339: Property 'amount' does not exist on type 'never'.
+src/services/transactionService.ts(141,23): error TS2339: Property 'type' does not exist on type 'never'.
+src/services/transactionService.ts(142,27): error TS2339: Property 'category' does not exist on type 'never'.
+src/services/transactionService.ts(143,30): error TS2339: Property 'institution' does not exist on type 'never'.
+src/services/transactionService.ts(144,28): error TS2339: Property 'is_pending' does not exist on type 'never'.
