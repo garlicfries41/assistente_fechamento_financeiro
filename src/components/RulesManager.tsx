@@ -77,7 +77,7 @@ export function RulesManager() {
                             options={[
                                 { value: '', label: 'Todas' },
                                 { value: 'Nubank', label: 'Nubank' },
-                                { value: 'Banco Inter', label: 'Banco Inter' },
+                                { value: 'Inter', label: 'Banco Inter' },
                                 { value: 'Mercado Pago', label: 'Mercado Pago' },
                                 { value: 'Manual', label: 'Manual' }
                             ]}
