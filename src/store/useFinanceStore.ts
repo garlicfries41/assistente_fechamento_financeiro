@@ -47,8 +47,20 @@ export const useFinanceStore = create<FinanceState>((set, get) => ({
             if (categories.length === 0) {
                 await categoryService.seedDefaults();
                 const newCategories = await categoryService.getAll();
+                // Ensure Marketing exists
+                if (!newCategories.includes('Marketing')) {
+                    await categoryService.create('Marketing');
+                    newCategories.push('Marketing');
+                    newCategories.sort();
+                }
                 set({ transactions, rules, categories: newCategories, loading: false });
             } else {
+                // Ensure Marketing exists even if not empty
+                if (!categories.includes('Marketing')) {
+                    await categoryService.create('Marketing');
+                    categories.push('Marketing');
+                    categories.sort();
+                }
                 set({ transactions, rules, categories, loading: false });
             }
 
@@ -210,10 +222,59 @@ export const useFinanceStore = create<FinanceState>((set, get) => ({
         set({ loading: true, error: null });
         try {
             const newRule = await ruleService.create(rule);
-            set(state => ({
-                rules: [...state.rules, newRule],
-                loading: false
-            }));
+
+            // Apply rule to existing transactions
+            const { transactions } = get();
+            const matchRule = (r: CategoryRule, t: Transaction) => {
+                if (r.institution && t.institution) {
+                    if (!containsInsensitive(t.institution, r.institution)) {
+                        return false;
+                    }
+                }
+
+                if (r.matchType === 'exact') {
+                    return equalsInsensitive(t.description, r.term);
+                }
+                return containsInsensitive(t.description, r.term);
+            };
+
+            const transactionsToUpdate = transactions.filter(t =>
+                matchRule(newRule, t) &&
+                (t.category !== newRule.category || t.isPending !== !newRule.autoConfirm)
+            );
+
+            if (transactionsToUpdate.length > 0) {
+                // Update in DB
+                await Promise.all(transactionsToUpdate.map(t =>
+                    transactionService.update(t.id, {
+                        category: newRule.category,
+                        isPending: newRule.autoConfirm ? false : true
+                    })
+                ));
+
+                // Update locally
+                const updatedTransactions = transactions.map(t => {
+                    if (matchRule(newRule, t)) {
+                        return {
+                            ...t,
+                            category: newRule.category,
+                            isPending: !newRule.autoConfirm
+                        };
+                    }
+                    return t;
+                });
+
+                set(state => ({
+                    rules: [...state.rules, newRule],
+                    transactions: updatedTransactions,
+                    loading: false
+                }));
+            } else {
+                set(state => ({
+                    rules: [...state.rules, newRule],
+                    loading: false
+                }));
+            }
         } catch (error: any) {
             set({ error: error.message, loading: false });
         }
