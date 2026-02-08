@@ -18,7 +18,7 @@ export function TransactionList() {
             Tipo: t.type || 'Saída', // Default for legacy data
             Descrição: t.description,
             Valor: t.amount.toLocaleString('pt-BR', { minimumFractionDigits: 2 }).replace('.', ''), // Force comma
-            Categoria: '', // Blank as requested
+            Categoria: t.category || '',
             Fonte: t.institution ? `${t.institution}` : t.source || 'Manual',
             // Owners removed
         }));
